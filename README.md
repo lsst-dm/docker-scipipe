@@ -10,5 +10,5 @@ The image tags are:
 - lsstdm/scipipe-base:7
 - lsstdm/scipipe-base:8
 
-The Dockerhub repo is set up to automatically build this images from
+The Dockerhub repo is set up to automatically build these images from
 this git repo.
