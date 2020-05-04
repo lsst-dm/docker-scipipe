@@ -1,7 +1,7 @@
 FROM centos:7
 LABEL MAINTAINER Brian Van Klaveren <bvan@slac.stanford.edu>
 
-ENV SUMMARY="Rubin Observatory Base centos 7 image for building software" \
+ENV SUMMARY="Rubin Observatory Base CentOS 7 image for building software" \
     DESCRIPTION="This is the base image required for conda, lsstsw, and \
 newinstall workflows"
 
