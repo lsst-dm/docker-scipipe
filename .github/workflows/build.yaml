@@ -13,7 +13,7 @@ jobs:
 
     strategy:
       matrix:
-        rhel: [9]
+        rhel: [7, 9]
 
     steps:
       - name: Define the tag
