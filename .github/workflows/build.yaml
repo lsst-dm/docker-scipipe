@@ -27,21 +27,11 @@ jobs:
           fi >> ${GITHUB_OUTPUT}
       - uses: actions/checkout@v4
 
-      - uses: docker/setup-buildx-action@v3
-        name: Set up Docker Buildx
-
-      - name: Login to GitHub Container Registry
-        uses: docker/login-action@v3
-        with:
-          registry: ghcr.io
-          username: ${{ github.repository_owner }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-
       - name: Build and push
-        uses: docker/build-push-action@v6
+        uses: lsst-dm/build-and-push@main
         with:
           push: true
-          tags: ghcr.io/${{ github.repository }}:${{ matrix.rhel }}-${{ steps.tag.outputs.tag }}
-          file: base-${{ matrix.rhel }}/Dockerfile
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          platforms: linux/amd64,linux/arm64
+          tag: ${{ matrix.rhel }}-${{ steps.tag.outputs.tag }}
+          dockerfile: base-${{ matrix.rhel }}/Dockerfile
