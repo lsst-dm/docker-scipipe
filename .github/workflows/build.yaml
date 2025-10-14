@@ -6,6 +6,11 @@ on:
     tags:
       - "*"
   workflow_dispatch:
+    inputs:
+      no-cache:
+        description: 'disable caching'
+        default: false
+        type: boolean
 
 jobs:
   build:
@@ -35,3 +40,4 @@ jobs:
           platforms: linux/amd64,linux/arm64
           tag: ${{ matrix.rhel }}-${{ steps.tag.outputs.tag }}
           dockerfile: base-${{ matrix.rhel }}/Dockerfile
+          no-cache: ${{ inputs.no-cache || 'false' }}
