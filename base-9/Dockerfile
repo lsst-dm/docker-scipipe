@@ -12,7 +12,7 @@ LABEL name="lsstdm/scipipe-base:9" \
       io.k8s.description="$DESCRIPTION" \
       io.k8s.display-name="Rubin Observatory AlmaLinux 9 container"
 
-RUN INSTALL_PKGS="git patch diffutils gnutls" && \
+RUN INSTALL_PKGS="git patch diffutils gnutls rclone" && \
     yum install -y --setopt=tsflags=nodocs ${INSTALL_PKGS} && \
     rpm -V ${INSTALL_PKGS} && \
     yum -y clean all --enablerepo='*'
