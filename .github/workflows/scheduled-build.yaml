@@ -1,0 +1,12 @@
+name: Scheduled Build
+
+on:
+  schedule:
+    - cron: '0 2 * * 1'
+
+jobs:
+  trigger-build:
+    # runs-on: ubuntu-latest
+    uses: ./.github/workflows/build.yaml
+    with:
+      no-cache: true

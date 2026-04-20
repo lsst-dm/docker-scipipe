@@ -1,6 +1,13 @@
 name: Build
 
 on:
+  workflow_call:
+    inputs:
+      no-cache:
+        description: 'disable caching'
+        default: false
+        type: boolean
+
   pull_request:
   push:
     tags:
