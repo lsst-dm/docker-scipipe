@@ -37,7 +37,7 @@ jobs:
           else
               echo "tag=latest"
           fi >> ${GITHUB_OUTPUT}
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Build and push
         uses: lsst-dm/build-and-push@main
