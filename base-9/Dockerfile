@@ -12,6 +12,10 @@ LABEL name="lsstdm/scipipe-base:9" \
   io.k8s.description="$DESCRIPTION" \
   io.k8s.display-name="Rubin Observatory AlmaLinux 9 container"
 
+RUN useradd -u 1000 -g 0 \
+  -d /home/jenkins -m \
+  -s /bin/sh jenkins
+
 RUN INSTALL_PKGS="git patch diffutils gnutls iputils vim-minimal" && \
   yum install -y --setopt=tsflags=nodocs ${INSTALL_PKGS} && \
   rpm -V ${INSTALL_PKGS} && \
